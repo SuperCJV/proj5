@@ -1,6 +1,7 @@
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
+#include <iostream>
 #include <vector>
 #include <list>
 #include <utility>
@@ -21,29 +22,28 @@ namespace cop4530{
                 ~HashTable();   // Destructor
 
                 // Public Member functions
-                bool contains(const K & k) const;   // Check if key k is in the hash table 
-                bool match(const std::pair<K,V>&kv) const;  // check if key-value pair is in the hash table
-                bool insert(const std::pair<K,V>&kv);   // Add the key-value pair kv into the hash table
-                bool insert(std::pair<K, V>&&kv);   // Move version of insert
-                bool remove(const K & k);   // delete the key k and the corresponding value
+                bool contains(const K &k) const;   // Check if key k is in the hash table 
+                bool match(const std::pair<K,V> &kv) const;  // check if key-value pair is in the hash table
+                bool insert(const std::pair<K,V> &kv);   // Add the key-value pair kv into the hash table
+                bool insert(std::pair<K, V> &&kv);   // Move version of insert
+                bool remove(const K &k);   // delete the key k and the corresponding value
                 void clear();   // delete all elements in the hash table
                 bool load(const char *filename);    // load the content of the file with name filename into the hash table
                 void dump() const;  //  display all entries in the hash table
                 size_t size() const;    //  return the number of elements in the hash table
-                bool write_to_file(constchar *filename) const;  //  write all elements in the hash table into a file with name filename
+                bool write_to_file(const char *filename) const;  //  write all elements in the hash table into a file with name filename
             private:
                 // Private Member functions
                 void makeEmpty();   // delete all elements in the hash table
                 void rehash();  // Rehash function
                 size_t myhash(const K &k) const;    // return the index of the vector entry where k should be stored
                 unsigned long prime_below(unsigned long);   // help function to determine the proper prime numbers used in setting up the vector size
-                void SetPrimes(vector<unsigned long>&); // help function to determine the proper prime numbers used in setting up the vector size
+                void setPrimes(std::vector<unsigned long>& vprimes); // help function to determine the proper prime numbers used in setting up the vector size
         
                 // Private Member data
                 std::vector<std::list<std::pair<K, V>>> table;
                 size_t currentSize;
         };
-
     #include "hashtable.hpp"
 }
 
