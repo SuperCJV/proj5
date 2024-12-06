@@ -2,9 +2,14 @@
 #define HASHTABLE_HPP
 
 #include <iostream>
-#include <fstream>
-#include <algorithm>
 #include <vector>
+
+// Handles file input and output operations
+#include <fstream>
+
+// For STL algorithms std::find_if and std::any_of
+#include <algorithm>
+
 #include "hashtable.h"
 
 using namespace std;

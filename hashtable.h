@@ -2,11 +2,17 @@
 #define HASHTABLE_H
 
 #include <iostream>
+#include <string>
+
+// Each entry in the hash table is a list inside a vector
 #include <vector>
 #include <list>
+
+// Provides the std::pair<K, V> class template to pass the pairs as parameter types
 #include <utility>
+
+// Provides the std::has class template to compute hash value for the key
 #include <functional>
-#include <string>
 
 // max_prime is used by the helpful functions provided to you.
 static const unsigned int max_prime = 1301081;
@@ -41,7 +47,7 @@ namespace cop4530{
                 void setPrimes(std::vector<unsigned long>& vprimes); // help function to determine the proper prime numbers used in setting up the vector size
         
                 // Private Member data
-                std::vector<std::list<std::pair<K, V>>> table;
+                vector<list<std::pair<K, V>>> table;
                 size_t currentSize;
         };
     #include "hashtable.hpp"
